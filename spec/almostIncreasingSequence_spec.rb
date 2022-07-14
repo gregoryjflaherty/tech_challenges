@@ -54,4 +54,19 @@ RSpec.describe Challenge do
         sequence = [123, -17, -5, 1, 2, 3, 12, 43, 45]
         expect(@challenge.solution(sequence)).to eq (true)
     end 
+
+    it 'test 11' do 
+        sequence = [1, 2, 1, 2]
+        expect(@challenge.solution(sequence)).to eq (false)
+    end 
+
+    it 'test 12' do 
+        sequence = [40, 50, 60, 10, 20, 30]
+        expect(@challenge.solution(sequence)).to eq (false)
+    end 
+
+    it 'test 13' do 
+        sequence = [1, 2, 3, 4, 5, 3, 5, 6]
+        expect(@challenge.solution(sequence)).to eq (false)
+    end 
 end 
