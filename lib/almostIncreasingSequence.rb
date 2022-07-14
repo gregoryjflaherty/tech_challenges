@@ -5,26 +5,17 @@
 
 class Challenge
     def solution(sequence)
-        sequence.each_with_index do |num, idx|
-            replica = sequence.clone
-            replica.slice!(idx)
-            if replica.length == 1
-                return true
+        faults = 0
+        sequence.each_cons(2) do |x, y|
+            if x >= y 
+                faults += 1
             end 
-            is_sequence = []
-            replica.each_cons(2) do |x, y| 
-                if x < y
-                    is_sequence << true
-                else
-                    is_sequence << false 
-                end 
-            end 
-            if !is_sequence.include?(false)
-                
-                return true
-            end 
-        end 
-        return false 
+        end
+        if faults <= 1 || sequence.length == 2
+            true
+        else 
+            false 
+        end  
     end
 end 
 
