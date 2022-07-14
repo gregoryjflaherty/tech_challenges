@@ -1,21 +1,17 @@
-#go through each element 
-# make a clone of array without  that element
-# see if that clone is strinctly increasing sequence by doing each cons 
-# if it is then true 
+# iterate through and make a clone without index 
+# match this new clone with a sorted clone 
+# if they match then return true
 
 class Challenge
     def solution(sequence)
-        faults = 0
-        sequence.each_cons(2) do |x, y|
-            if x >= y 
-                faults += 1
+        sequence.each_with_index do |num, idx|
+            replica = sequence.clone
+            replica.slice!(idx)
+            if (replica.sort == replica) && (replica.uniq == replica) 
+                return true
             end 
         end
-        if faults <= 1 || sequence.length == 2
-            true
-        else 
-            false 
-        end  
+        false  
     end
 end 
 
