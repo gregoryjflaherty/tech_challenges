@@ -16,6 +16,12 @@
 
  
 
+# Split string 
+# Iterate through string 
+# set a sub collector to collect substrings
+# if not ( or ) and collecotr is false put into output 
+# if it is one of these and collector is false set collector to true 
+# if collector is true and not a parenthesis put into sub_collector 
 
 
 class Challenge
@@ -24,6 +30,7 @@ class Challenge
         collector = false
         output = ""
         reverse = ""
+        sub_counter = 0
         inputString.each do |char|
             if collector == false && (char != "(" || char !- ")") 
                 output << char
@@ -33,6 +40,7 @@ class Challenge
                 collector = true
             elsif char = "(" 
                 collector = true
+                sub_counter += 1
             end
         end 
     end 
