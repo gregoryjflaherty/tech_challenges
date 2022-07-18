@@ -22,6 +22,11 @@
 # if not ( or ) and collecotr is false put into output 
 # if it is one of these and collector is false set collector to true 
 # if collector is true and not a parenthesis put into sub_collector 
+# if collector is true, and is a ( put into subcollector and ad one to subcounter 
+# if collector is true, is a ) and subcounter is greater than zero 
+    # put into subcollector and subtract one to subcounter 
+# if collector is true, is a ) and subcounter IS zero 
+    # put into subcollector - begin recursion on subcollector
 
 
 class Challenge
@@ -31,17 +36,30 @@ class Challenge
         output = ""
         reverse = ""
         sub_counter = 0
-        inputString.each do |char|
-            if collector == false && (char != "(" || char !- ")") 
+        split_string.each do |char|
+            # require 'pry' ; binding.pry
+            if collector == false && (char != "(" && char != ")") 
+                # require 'pry' ; binding.pry
                 output << char
-            elsif collector == true
+            elsif char == "(" && collector == false
+                # require 'pry' ; binding.pry
+                collector = true
+            elsif collector == true && char == ")" && sub_counter < 1
+                output << reverse.reverse!
+                reverse = ""
+                collector = false
+                # require 'pry' ; binding.pry
+            elsif char == "(" && collector == true
                 reverse << char
-            elsif char = "(" && collector == false
-                collector = true
-            elsif char = "(" 
-                collector = true
                 sub_counter += 1
+                # require 'pry' ; binding.pry
+            elsif collector == true && char == ")" && sub_counter >= 1
+                reverse << char
+                sub_counter -= 1
+                require 'pry' ; binding.pry
+                
             end
-        end 
+        end
+        output
     end 
 end 
