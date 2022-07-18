@@ -37,27 +37,24 @@ class Challenge
         reverse = ""
         sub_counter = 0
         split_string.each do |char|
-            # require 'pry' ; binding.pry
             if collector == false && (char != "(" && char != ")") 
-                # require 'pry' ; binding.pry
                 output << char
             elsif char == "(" && collector == false
-                # require 'pry' ; binding.pry
                 collector = true
+            elsif collector == true && (char != "(" && char != ")") 
+                reverse << char
             elsif collector == true && char == ")" && sub_counter < 1
                 output << reverse.reverse!
                 reverse = ""
                 collector = false
-                # require 'pry' ; binding.pry
             elsif char == "(" && collector == true
                 reverse << char
                 sub_counter += 1
-                # require 'pry' ; binding.pry
             elsif collector == true && char == ")" && sub_counter >= 1
                 reverse << char
-                sub_counter -= 1
-                require 'pry' ; binding.pry
-                
+                sub_counter = 0
+                collector = false             
+                output << solution(reverse).reverse!
             end
         end
         output
