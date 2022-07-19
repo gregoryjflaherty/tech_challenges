@@ -23,7 +23,12 @@
 # won't make a and b equal.
 
 
-
+# iterate through second array with index
+# check if that index matches the index of first array
+# if it does skip
+# if it does not add the index to an empty index array
+# at the end check if index array has two elements 
+ 
 
 class Challenge
     def solution(a, b)
