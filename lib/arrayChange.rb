@@ -10,7 +10,14 @@
 # solution(inputArray) = 3.
 
 
-
+# create empty counter called moves - set to zero
+# goal is to have increasing array
+# go through each cons 
+# 
+# begin loop - check if first is less than second
+#  if less break loop and go to next iteratiuon  
+#  if more add 1 to counter, keep on loop until first element is less than
+#  return counter 
 
 
 
