@@ -10,19 +10,23 @@
 # solution(inputArray) = 3.
 
 
-# create empty counter called moves - set to zero
-# goal is to have increasing array
-# go through each cons 
-# 
-# begin loop - check if first is less than second
-#  if less break loop and go to next iteratiuon  
-#  if more add 1 to counter, keep on loop until first element is less than
-#  return counter 
-
+# create empty counter called moves
+# go through each cons element
+# if first element is larger then second
+    # subtract second element from first - add 1- add to moves 
+    # assign second element to that number
 
 
 class Challenge
     def solution(inputArray)
-
+        moves = 0
+        inputArray.each_with_index do |i, idx|
+            if !inputArray[idx + 1].nil? && inputArray[idx] >= inputArray[idx + 1]  
+                current_move = (inputArray[idx] - inputArray[idx + 1] + 1)
+                moves += current_move
+                inputArray[idx + 1] += current_move
+            end 
+        end 
+        moves
     end
 end 
