@@ -24,6 +24,7 @@ class Challenge
                 s2_split.slice!(index)
             end 
             sum
+
         end 
     end
 end 
